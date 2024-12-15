@@ -1,0 +1,44 @@
+---
+import metadata from '../refactored_library_metadata.json';
+import FunctionsDoc from './FunctionsDoc';
+
+---
+
+<h1 class="text-center mb-4">Functions Documentation</h1>
+{metadata.functions.map(func => (
+  <div class="card mb-4 shadow-sm" style="border: 1px solid #dee2e6;">
+
+    <div class="card-body">
+      <FunctionsDoc func={func} />
+    </div>
+  </div>
+))}
+
+
+{ metadata.classes && (
+  <>
+    <h1 class="text-center mb-4">Classes Documentation</h1>
+    {metadata.classes.map(cls => (
+      <div class="card mb-4 shadow-sm" style="border: 1px solid #dee2e6;">
+
+        <div class="card-body">
+          <details>
+            <summary class="fw-bold">
+                <code class="language-python">{`from ${cls.module} import ${cls.name}`}</code>
+            </summary>
+            <h5>Methods:</h5>
+            
+            {cls.methods.map(
+              method => (
+                <FunctionsDoc func={method} ismethod={true} />
+                )
+            )}
+
+          </details>
+          
+
+        </div>
+      </div>
+    ))}
+  </>
+)}

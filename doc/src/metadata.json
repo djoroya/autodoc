@@ -1,0 +1,3068 @@
+{
+    "runccx": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "runccx",
+                "docstring": "{\n    \"description\": \"Runs Calculix with specified parameters, allowing for output visualization and controlled termination. Supports both Windows and Linux environments.\",\n    \"inputs\": [\n        {\n            \"name\": \"output_folder\",\n            \"type\": \"string\",\n            \"description\": \"Path to the output folder where results and logs will be stored. (Required)\"\n        },\n        {\n            \"name\": \"name_inp\",\n            \"type\": \"string\",\n            \"description\": \"Name of the input file for Calculix. (Required)\"\n        },\n        {\n            \"name\": \"OMP_NUM_THREADS\",\n            \"type\": \"integer\",\n            \"description\": \"Number of threads to use for parallel execution. Default is 8. (Optional)\"\n        },\n        {\n            \"name\": \"outtxt\",\n            \"type\": \"string\",\n            \"description\": \"Name of the output log file. Default is 'out.txt'. (Optional)\"\n        },\n        {\n            \"name\": \"mpi\",\n            \"type\": \"boolean\",\n            \"description\": \"Flag to enable MPI execution. Default is False. (Optional)\"\n        },\n        {\n            \"name\": \"mpi_np\",\n            \"type\": \"integer\",\n            \"description\": \"Number of MPI processes to use if MPI is enabled. Default is 4. (Optional)\"\n        }\n    ],\n    \"outputs\": {\n        \"type\": \"tuple\",\n        \"description\": \"Returns a tuple containing the error code (0 for success, 1 for failure) and the command used to run Calculix.\"\n    },\n    \"examples\": [\n        {\n            \"input\": {\n                \"output_folder\": \"/path/to/output\",\n                \"name_inp\": \"example_input\",\n                \"OMP_NUM_THREADS\": 4,\n                \"outtxt\": \"output.log\",\n                \"mpi\": false,\n                \"mpi_np\": 4\n            },\n            \"output\": \"(0, 'ccx example_input > output.log')\"\n        },\n        {\n            \"input\": {\n                \"output_folder\": \"/path/to/output\",\n                \"name_inp\": \"example_input\",\n                \"mpi\": true,\n                \"mpi_np\": 8\n            },\n            \"output\": \"(0, 'mpiexec -n 8 wine ccx_dynamic.exe example_input')\"\n        }\n    ]\n}",
+                "parsed_metadata": {
+                    "description": "Runs Calculix with specified parameters, allowing for output visualization and controlled termination. Supports both Windows and Linux environments.",
+                    "inputs": [
+                        {
+                            "name": "output_folder",
+                            "type": "string",
+                            "description": "Path to the output folder where results and logs will be stored. (Required)"
+                        },
+                        {
+                            "name": "name_inp",
+                            "type": "string",
+                            "description": "Name of the input file for Calculix. (Required)"
+                        },
+                        {
+                            "name": "OMP_NUM_THREADS",
+                            "type": "integer",
+                            "description": "Number of threads to use for parallel execution. Default is 8. (Optional)"
+                        },
+                        {
+                            "name": "outtxt",
+                            "type": "string",
+                            "description": "Name of the output log file. Default is 'out.txt'. (Optional)"
+                        },
+                        {
+                            "name": "mpi",
+                            "type": "boolean",
+                            "description": "Flag to enable MPI execution. Default is False. (Optional)"
+                        },
+                        {
+                            "name": "mpi_np",
+                            "type": "integer",
+                            "description": "Number of MPI processes to use if MPI is enabled. Default is 4. (Optional)"
+                        }
+                    ],
+                    "outputs": {
+                        "type": "tuple",
+                        "description": "Returns a tuple containing the error code (0 for success, 1 for failure) and the command used to run Calculix."
+                    },
+                    "examples": [
+                        {
+                            "input": {
+                                "output_folder": "/path/to/output",
+                                "name_inp": "example_input",
+                                "OMP_NUM_THREADS": 4,
+                                "outtxt": "output.log",
+                                "mpi": false,
+                                "mpi_np": 4
+                            },
+                            "output": "(0, 'ccx example_input > output.log')"
+                        },
+                        {
+                            "input": {
+                                "output_folder": "/path/to/output",
+                                "name_inp": "example_input",
+                                "mpi": true,
+                                "mpi_np": 8
+                            },
+                            "output": "(0, 'mpiexec -n 8 wine ccx_dynamic.exe example_input')"
+                        }
+                    ]
+                },
+                "module": "djccx.runccx"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.runccx"
+    },
+    "check_wine_installed": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "check_wine_installed",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.check_wine_installed"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.check_wine_installed"
+    },
+    "read_dat": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "read_dat",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.read_dat"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.read_dat"
+    },
+    "inp2json": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "inp2json",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.inp2json"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.inp2json"
+    },
+    "init": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "init",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.init"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.init"
+    },
+    "frd2json": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "frd2json",
+                "docstring": "    {\n  \"name\": \"frd2json\",\n  \"description\": \"Converts finite element data from an inp (djccx.inp.inp) and a results file (FRD) into a JSON-compatible dictionary structure.\",\n  \"inputs\": [\n    {\n      \"name\": \"inpf\",\n      \"type\": \"inp from djccx.inp.inp\",\n      \"description\": \"The input file object, typically containing nodes, elements, and boundary conditions.\"\n    },\n    {\n      \"name\": \"elements\",\n      \"type\": \"list\",\n      \"optional\": true,\n      \"description\": \"A list of surface elements to be included in the conversion. If not provided, all elements from 'inpf' will be used.\"\n    },\n    {\n      \"name\": \"frd\",\n      \"type\": \"object\",\n      \"optional\": true,\n      \"description\": \"The results file object containing node displacements and additional results. If not provided, the default results stored in 'inpf.frd' are used.\"\n    }\n  ],\n  \"outputs\": [{\n    \"type\": \"dict\",\n    \"description\": \"A dictionary containing the processed data for further use or visualization.\",\n    \"keys\": [\n      { \"name\": \"x\", \"type\": \"list\", \"description\": \"Displaced x-coordinates of nodes.\" },\n      { \"name\": \"y\", \"type\": \"list\", \"description\": \"Displaced y-coordinates of nodes.\" },\n      { \"name\": \"z\", \"type\": \"list\", \"description\": \"Displaced z-coordinates of nodes.\" },\n      { \"name\": \"xi\", \"type\": \"list\", \"description\": \"Original x-coordinates of nodes.\" },\n      { \"name\": \"yi\", \"type\": \"list\", \"description\": \"Original y-coordinates of nodes.\" },\n      { \"name\": \"zi\", \"type\": \"list\", \"description\": \"Original z-coordinates of nodes.\" },\n      { \"name\": \"i\", \"type\": \"list\", \"description\": \"Node indices (i) defining faces of surface elements.\" },\n      { \"name\": \"j\", \"type\": \"list\", \"description\": \"Node indices (j) defining faces of surface elements.\" },\n      { \"name\": \"k\", \"type\": \"list\", \"description\": \"Node indices (k) defining faces of surface elements.\" },\n      { \"name\": \"magnitud\", \"type\": \"list\", \"description\": \"Displacement magnitudes for each node.\" },\n      { \"name\": \"i_list\", \"type\": \"list\", \"description\": \"List of node indices (i) for individual surfaces.\" },\n      { \"name\": \"j_list\", \"type\": \"list\", \"description\": \"List of node indices (j) for individual surfaces.\" },\n      { \"name\": \"k_list\", \"type\": \"list\", \"description\": \"List of node indices (k) for individual surfaces.\" },\n      { \"name\": \"names\", \"type\": \"list\", \"description\": \"Names of the surfaces.\" }\n    ]\n  }]\n}\n\n    \n    ",
+                "parsed_metadata": {
+                    "name": "frd2json",
+                    "description": "Converts finite element data from an inp (djccx.inp.inp) and a results file (FRD) into a JSON-compatible dictionary structure.",
+                    "inputs": [
+                        {
+                            "name": "inpf",
+                            "type": "inp from djccx.inp.inp",
+                            "description": "The input file object, typically containing nodes, elements, and boundary conditions."
+                        },
+                        {
+                            "name": "elements",
+                            "type": "list",
+                            "optional": true,
+                            "description": "A list of surface elements to be included in the conversion. If not provided, all elements from 'inpf' will be used."
+                        },
+                        {
+                            "name": "frd",
+                            "type": "object",
+                            "optional": true,
+                            "description": "The results file object containing node displacements and additional results. If not provided, the default results stored in 'inpf.frd' are used."
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "type": "dict",
+                            "description": "A dictionary containing the processed data for further use or visualization.",
+                            "keys": [
+                                {
+                                    "name": "x",
+                                    "type": "list",
+                                    "description": "Displaced x-coordinates of nodes."
+                                },
+                                {
+                                    "name": "y",
+                                    "type": "list",
+                                    "description": "Displaced y-coordinates of nodes."
+                                },
+                                {
+                                    "name": "z",
+                                    "type": "list",
+                                    "description": "Displaced z-coordinates of nodes."
+                                },
+                                {
+                                    "name": "xi",
+                                    "type": "list",
+                                    "description": "Original x-coordinates of nodes."
+                                },
+                                {
+                                    "name": "yi",
+                                    "type": "list",
+                                    "description": "Original y-coordinates of nodes."
+                                },
+                                {
+                                    "name": "zi",
+                                    "type": "list",
+                                    "description": "Original z-coordinates of nodes."
+                                },
+                                {
+                                    "name": "i",
+                                    "type": "list",
+                                    "description": "Node indices (i) defining faces of surface elements."
+                                },
+                                {
+                                    "name": "j",
+                                    "type": "list",
+                                    "description": "Node indices (j) defining faces of surface elements."
+                                },
+                                {
+                                    "name": "k",
+                                    "type": "list",
+                                    "description": "Node indices (k) defining faces of surface elements."
+                                },
+                                {
+                                    "name": "magnitud",
+                                    "type": "list",
+                                    "description": "Displacement magnitudes for each node."
+                                },
+                                {
+                                    "name": "i_list",
+                                    "type": "list",
+                                    "description": "List of node indices (i) for individual surfaces."
+                                },
+                                {
+                                    "name": "j_list",
+                                    "type": "list",
+                                    "description": "List of node indices (j) for individual surfaces."
+                                },
+                                {
+                                    "name": "k_list",
+                                    "type": "list",
+                                    "description": "List of node indices (k) for individual surfaces."
+                                },
+                                {
+                                    "name": "names",
+                                    "type": "list",
+                                    "description": "Names of the surfaces."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "module": "djccx.inp.frd2json"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.frd2json"
+    },
+    "inp": {
+        "classes": {
+            "inp": {
+                "docstring": null,
+                "methods": [
+                    {
+                        "name": "GetNodesElement",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "SetPrefix",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "SetUniqueNodes",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "__init__",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "addDisplFRD",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "addDisplacement",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "cleansteps",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "contactdataframe",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "filter_by_type",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "frd2json",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "in2jsonarray",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "inp2json",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "last_element_id",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "last_node_id",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "matplotlib",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "merge",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "plot",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "plot3D",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "plotly",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "plotlyfrd",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "remove_by_type",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "remove_nset",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "remove_nset_regex",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "remove_surface",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "remove_surface_regex",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "remove_tie",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "remove_tie_regex",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "reset_index",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "run",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "scale",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "select",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "select_regex",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "setResults",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "setResultsSteps",
+                        "docstring": null,
+                        "module": "builtins"
+                    }
+                ],
+                "base_classes": [
+                    "AbstractCreate"
+                ],
+                "inherited_methods": [
+                    {
+                        "name": "AddEquation",
+                        "docstring": null,
+                        "from_class": "AbstractCreate",
+                        "module": "djccx.inp.CreateCards.AbstractCreate"
+                    },
+                    {
+                        "name": "CreateContacts",
+                        "docstring": null,
+                        "from_class": "AbstractCreate",
+                        "module": "djccx.inp.CreateCards.AbstractCreate"
+                    },
+                    {
+                        "name": "CreateCopyNset",
+                        "docstring": null,
+                        "from_class": "AbstractCreate",
+                        "module": "djccx.inp.CreateCards.AbstractCreate"
+                    },
+                    {
+                        "name": "CreateElasticMaterial",
+                        "docstring": null,
+                        "from_class": "AbstractCreate",
+                        "module": "djccx.inp.CreateCards.AbstractCreate"
+                    },
+                    {
+                        "name": "CreateElsetAll",
+                        "docstring": null,
+                        "from_class": "AbstractCreate",
+                        "module": "djccx.inp.CreateCards.AbstractCreate"
+                    },
+                    {
+                        "name": "CreateNsetCopy",
+                        "docstring": null,
+                        "from_class": "AbstractCreate",
+                        "module": "djccx.inp.CreateCards.AbstractCreate"
+                    },
+                    {
+                        "name": "CreateNsetFromElement",
+                        "docstring": null,
+                        "from_class": "AbstractCreate",
+                        "module": "djccx.inp.CreateCards.AbstractCreate"
+                    },
+                    {
+                        "name": "CreateNsetFromElementIndex",
+                        "docstring": null,
+                        "from_class": "AbstractCreate",
+                        "module": "djccx.inp.CreateCards.AbstractCreate"
+                    },
+                    {
+                        "name": "CreateNsetFromIds",
+                        "docstring": null,
+                        "from_class": "AbstractCreate",
+                        "module": "djccx.inp.CreateCards.AbstractCreate"
+                    },
+                    {
+                        "name": "CreateNsetFromLabels",
+                        "docstring": null,
+                        "from_class": "AbstractCreate",
+                        "module": "djccx.inp.CreateCards.AbstractCreate"
+                    },
+                    {
+                        "name": "CreateNsetFromNsets",
+                        "docstring": null,
+                        "from_class": "AbstractCreate",
+                        "module": "djccx.inp.CreateCards.AbstractCreate"
+                    },
+                    {
+                        "name": "CreatePBC_with_tie",
+                        "docstring": null,
+                        "from_class": "AbstractCreate",
+                        "module": "djccx.inp.CreateCards.AbstractCreate"
+                    },
+                    {
+                        "name": "CreateSkeletonFromTrajs",
+                        "docstring": null,
+                        "from_class": "AbstractCreate",
+                        "module": "djccx.inp.CreateCards.AbstractCreate"
+                    },
+                    {
+                        "name": "CreateSolidSection",
+                        "docstring": null,
+                        "from_class": "AbstractCreate",
+                        "module": "djccx.inp.CreateCards.AbstractCreate"
+                    },
+                    {
+                        "name": "CreateStaticStep",
+                        "docstring": null,
+                        "from_class": "AbstractCreate",
+                        "module": "djccx.inp.CreateCards.AbstractCreate"
+                    },
+                    {
+                        "name": "CreateSurfNodeFromNset",
+                        "docstring": null,
+                        "from_class": "AbstractCreate",
+                        "module": "djccx.inp.CreateCards.AbstractCreate"
+                    },
+                    {
+                        "name": "CreateSurfaceFromNset",
+                        "docstring": null,
+                        "from_class": "AbstractCreate",
+                        "module": "djccx.inp.CreateCards.AbstractCreate"
+                    },
+                    {
+                        "name": "CreateTie",
+                        "docstring": null,
+                        "from_class": "AbstractCreate",
+                        "module": "djccx.inp.CreateCards.AbstractCreate"
+                    },
+                    {
+                        "name": "CreateTransform",
+                        "docstring": null,
+                        "from_class": "AbstractCreate",
+                        "module": "djccx.inp.CreateCards.AbstractCreate"
+                    }
+                ],
+                "module": "djccx.inp.inp"
+            }
+        },
+        "functions": [
+            {
+                "name": "addDisplFRD",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.inp"
+            },
+            {
+                "name": "merge",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.inp"
+            },
+            {
+                "name": "select",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.inp"
+            },
+            {
+                "name": "select_regex",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.inp"
+            },
+            {
+                "name": "setResults",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.inp"
+            },
+            {
+                "name": "filter_by_type",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.inp"
+            },
+            {
+                "name": "remove_nset",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.inp"
+            },
+            {
+                "name": "remove_surface",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.inp"
+            },
+            {
+                "name": "remove_surface_regex",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.inp"
+            },
+            {
+                "name": "remove_nset_regex",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.inp"
+            },
+            {
+                "name": "remove_tie",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.inp"
+            },
+            {
+                "name": "remove_tie_regex",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.inp"
+            },
+            {
+                "name": "plot",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.inp"
+            },
+            {
+                "name": "plot3D",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.inp"
+            },
+            {
+                "name": "GetNodesElement",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.inp"
+            },
+            {
+                "name": "inp2json",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.inp"
+            },
+            {
+                "name": "plotly",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.inp"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.inp"
+    },
+    "addDisplacement": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "addDisplacement",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.transformations.addDisplacement"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.transformations.addDisplacement"
+    },
+    "SetUniqueNodes": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "SetUniqueNodes",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.transformations.SetUniqueNodes"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.transformations.SetUniqueNodes"
+    },
+    "addDisplFRD": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "addDisplFRD",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.transformations.addDisplFRD"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.transformations.addDisplFRD"
+    },
+    "AbstractCreate": {
+        "classes": {
+            "AbstractCreate": {
+                "docstring": null,
+                "methods": [
+                    {
+                        "name": "AddEquation",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "CreateContacts",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "CreateCopyNset",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "CreateElasticMaterial",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "CreateElsetAll",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "CreateNsetCopy",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "CreateNsetFromElement",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "CreateNsetFromElementIndex",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "CreateNsetFromIds",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "CreateNsetFromLabels",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "CreateNsetFromNsets",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "CreatePBC_with_tie",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "CreateSkeletonFromTrajs",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "CreateSolidSection",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "CreateStaticStep",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "CreateSurfNodeFromNset",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "CreateSurfaceFromNset",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "CreateTie",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "CreateTransform",
+                        "docstring": null,
+                        "module": "builtins"
+                    }
+                ],
+                "base_classes": [
+                    "object"
+                ],
+                "inherited_methods": [],
+                "module": "djccx.inp.CreateCards.AbstractCreate"
+            }
+        },
+        "functions": [
+            {
+                "name": "AddEquation",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.AbstractCreate"
+            },
+            {
+                "name": "CreateSurfNodeFromNset",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.AbstractCreate"
+            },
+            {
+                "name": "CreateElsetAll",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.AbstractCreate"
+            },
+            {
+                "name": "CreateNsetFromNsets",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.AbstractCreate"
+            },
+            {
+                "name": "CreateNsetCopy",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.AbstractCreate"
+            },
+            {
+                "name": "CreateTie",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.AbstractCreate"
+            },
+            {
+                "name": "CreateSkeletonFromTrajs",
+                "docstring": "{\n    \"description\": \"Creates a skeleton (set of nodes) based on the closest nodes to the given trajectory.\",\n    \"parameters\": [\n        {\n            \"name\": \"inp_files\",\n            \"type\": \"object\",\n            \"description\": \"The object containing the nodes and elements of the .inp file.\"\n        },\n        {\n            \"name\": \"element\",\n            \"type\": \"object\",\n            \"description\": \"The element object from which unique nodes are extracted.\"\n        },\n        {\n            \"name\": \"trajs\",\n            \"type\": \"np.ndarray\",\n            \"description\": \"An array of trajectory points. It is expected to be a 2D array with shape (n_points, 3) representing the trajectory in 3D space.\"\n        },\n        {\n            \"name\": \"radius\",\n            \"type\": \"float\",\n            \"default\": 0.2,\n            \"description\": \"The radius used to filter nodes that are within a certain distance from the trajectory.\"\n        },\n        {\n            \"name\": \"name\",\n            \"type\": \"str\",\n            \"default\": \"skeleton\",\n            \"description\": \"The name to assign to the node set (nset).\"\n        }\n    ],\n    \"returns\": {\n        \"type\": \"None\",\n        \"description\": \"This function modifies the .inp file object by creating a new node set if nodes are found, or prints a warning if no nodes are close enough.\"\n    },\n    \"example\": {\n        \"description\": \"Example usage of CreateSkeletonFromTrajs function.\",\n        \"code\": \"```python\n# Assuming `inp_files` is a loaded .inp file object and `element` is an element object\ntrajs = np.array([[0, 0, 0], [1, 1, 1], [2, 2, 2]])  # Example trajectory in 3D space\nradius = 0.3\nCreateSkeletonFromTrajs(inp_files, element, trajs, radius, name=\"example_skeleton\")\n```\"\n    }\n}\n\n    ",
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.AbstractCreate"
+            },
+            {
+                "name": "CreateElasticMaterial",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.AbstractCreate"
+            },
+            {
+                "name": "CreateTransform",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.AbstractCreate"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.CreateCards.AbstractCreate"
+    },
+    "CreateContacts": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "CreateContacts",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.CreateContacts"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.CreateCards.CreateContacts"
+    },
+    "CreateElsetAll": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "CreateElsetAll",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.CreateElsetAll"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.CreateCards.CreateElsetAll"
+    },
+    "CreatePBC_with_tie": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "CreatePBC_with_tie",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.CreatePBC_with_tie"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.CreateCards.CreatePBC_with_tie"
+    },
+    "CreateTie": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "CreateTie",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.CreateTie"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.CreateCards.CreateTie"
+    },
+    "AddEquation": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "AddEquation",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.AddEquation"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.CreateCards.AddEquation"
+    },
+    "CreateSolidSection": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "CreateSolidSection",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.CreateSolidSection"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.CreateCards.CreateSolidSection"
+    },
+    "CreateElasticMaterial": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "CreateElasticMaterial",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.CreateElasticMaterial"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.CreateCards.CreateElasticMaterial"
+    },
+    "addSurfaceGen": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "vecnormal",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.addSurfaceGen"
+            },
+            {
+                "name": "compute_faces_all",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.addSurfaceGen"
+            },
+            {
+                "name": "compute_faces",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.addSurfaceGen"
+            },
+            {
+                "name": "ComputeFaceOrder",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.addSurfaceGen"
+            },
+            {
+                "name": "addSurface",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.addSurfaceGen"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.CreateCards.addSurfaceGen"
+    },
+    "CreateTransform": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "CreateTransform",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.CreateTransform"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.CreateCards.CreateTransform"
+    },
+    "CreateStaticStep": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "CreateStaticStep",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.CreateStaticStep"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.CreateCards.CreateStaticStep"
+    },
+    "CreateSurfaceFromNset": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "vecnormal",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.Surface.CreateSurfaceFromNset"
+            },
+            {
+                "name": "compute_faces_all",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.Surface.CreateSurfaceFromNset"
+            },
+            {
+                "name": "compute_faces",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.Surface.CreateSurfaceFromNset"
+            },
+            {
+                "name": "ComputeFaceOrder",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.Surface.CreateSurfaceFromNset"
+            },
+            {
+                "name": "CreateSurfaceFromNset",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.Surface.CreateSurfaceFromNset"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.CreateCards.Surface.CreateSurfaceFromNset"
+    },
+    "CreateSurfNodeFromNset": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "CreateSurfNodeFromNset",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.Surface.CreateSurfNodeFromNset"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.CreateCards.Surface.CreateSurfNodeFromNset"
+    },
+    "CreateCopyNset": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "CreateCopyNset",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.Nset.CreateCopyNset"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.CreateCards.Nset.CreateCopyNset"
+    },
+    "CreateNsetFromNsets": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "CreateNsetFromNsets",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.Nset.CreateNsetFromNsets"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.CreateCards.Nset.CreateNsetFromNsets"
+    },
+    "CreateSkeletonFromTrajs": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "CreateSkeletonFromTrajs",
+                "docstring": "{\n    \"description\": \"Creates a skeleton (set of nodes) based on the closest nodes to the given trajectory.\",\n    \"parameters\": [\n        {\n            \"name\": \"inp_files\",\n            \"type\": \"object\",\n            \"description\": \"The object containing the nodes and elements of the .inp file.\"\n        },\n        {\n            \"name\": \"element\",\n            \"type\": \"object\",\n            \"description\": \"The element object from which unique nodes are extracted.\"\n        },\n        {\n            \"name\": \"trajs\",\n            \"type\": \"np.ndarray\",\n            \"description\": \"An array of trajectory points. It is expected to be a 2D array with shape (n_points, 3) representing the trajectory in 3D space.\"\n        },\n        {\n            \"name\": \"radius\",\n            \"type\": \"float\",\n            \"default\": 0.2,\n            \"description\": \"The radius used to filter nodes that are within a certain distance from the trajectory.\"\n        },\n        {\n            \"name\": \"name\",\n            \"type\": \"str\",\n            \"default\": \"skeleton\",\n            \"description\": \"The name to assign to the node set (nset).\"\n        }\n    ],\n    \"returns\": {\n        \"type\": \"None\",\n        \"description\": \"This function modifies the .inp file object by creating a new node set if nodes are found, or prints a warning if no nodes are close enough.\"\n    },\n    \"example\": {\n        \"description\": \"Example usage of CreateSkeletonFromTrajs function.\",\n        \"code\": \"```python\n# Assuming `inp_files` is a loaded .inp file object and `element` is an element object\ntrajs = np.array([[0, 0, 0], [1, 1, 1], [2, 2, 2]])  # Example trajectory in 3D space\nradius = 0.3\nCreateSkeletonFromTrajs(inp_files, element, trajs, radius, name=\"example_skeleton\")\n```\"\n    }\n}\n\n    ",
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.Nset.CreateSkeletonFromTrajs"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.CreateCards.Nset.CreateSkeletonFromTrajs"
+    },
+    "CreateNsetFromLabels": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "CreateNsetFromLabels",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.Nset.CreateNsetFromLabels"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.CreateCards.Nset.CreateNsetFromLabels"
+    },
+    "CreateNsetFromElement": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "CreateNsetFromElementIndex",
+                "docstring": "Creates a node set (nset) from the given element indices.\n\nParameters:\n- self: The object containing the list of elements and nodes from the .inp file.\n- index_el (list[int]): A list of element indices from which the node set will be created.\n- name (str, optional): The name of the nset. If not provided, the name will default to the last element's ELSET.\n\nReturns:\n- NsetCard: The created nset (node set) containing unique nodes from the elements.",
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.Nset.CreateNsetFromElement"
+            },
+            {
+                "name": "CreateNsetFromElement",
+                "docstring": "Creates a node set (nset) from a list of elements.\n\nParameters:\n- self: The object containing the list of elements and nodes from the .inp file.\n- elements (list): A list of element objects from which the node set will be created.\n- name (str): The name of the nset to be created.\n\nReturns:\n- NsetCard: The created nset (node set) containing unique nodes from the elements.",
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.Nset.CreateNsetFromElement"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.CreateCards.Nset.CreateNsetFromElement"
+    },
+    "CreateNsetFromIds": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "CreateNsetFromIds",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.Nset.CreateNsetFromIds"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.CreateCards.Nset.CreateNsetFromIds"
+    },
+    "CreateNsetCopy": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "CreateNsetCopy",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.CreateCards.Nset.CreateNsetCopy"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.CreateCards.Nset.CreateNsetCopy"
+    },
+    "NodeCard": {
+        "classes": {
+            "NodeCard": {
+                "docstring": null,
+                "methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "module": "builtins"
+                    }
+                ],
+                "base_classes": [
+                    "Card"
+                ],
+                "inherited_methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__repr__",
+                        "docstring": "Return repr(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__str__",
+                        "docstring": "Return str(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    }
+                ],
+                "module": "djccx.inp.cards.NodeCard"
+            }
+        },
+        "functions": [],
+        "docstring": "",
+        "file_path": "djccx.inp.cards.NodeCard"
+    },
+    "ElsetCard": {
+        "classes": {
+            "ElsetCard": {
+                "docstring": null,
+                "methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": "{\n    \"description\": \"Initializes the ElsetCard with a name and associated element IDs.\",\n    \"inputs\": [\n        {\n            \"name\": \"name\",\n            \"type\": \"string\",\n            \"description\": \"The name of the element set.\"\n        },\n        {\n            \"name\": \"id_elements\",\n            \"type\": \"list or array of integers\",\n            \"description\": \"IDs of the elements included in the set.\"\n        }\n    ],\n    \"outputs\": {\n        \"type\": \"None\",\n        \"description\": \"This is a constructor and does not return anything.\"\n    },\n    \"examples\": [\n        {\n            \"input\": {\n                \"name\": \"ExampleSet\",\n                \"id_elements\": [1, 2, 3, 4, 5]\n            },\n            \"output\": \"None\"\n        }\n    ]\n}",
+                        "module": "builtins",
+                        "parsed_metadata": {
+                            "description": "Initializes the ElsetCard with a name and associated element IDs.",
+                            "inputs": [
+                                {
+                                    "name": "name",
+                                    "type": "string",
+                                    "description": "The name of the element set."
+                                },
+                                {
+                                    "name": "id_elements",
+                                    "type": "list or array of integers",
+                                    "description": "IDs of the elements included in the set."
+                                }
+                            ],
+                            "outputs": {
+                                "type": "None",
+                                "description": "This is a constructor and does not return anything."
+                            },
+                            "examples": [
+                                {
+                                    "input": {
+                                        "name": "ExampleSet",
+                                        "id_elements": [
+                                            1,
+                                            2,
+                                            3,
+                                            4,
+                                            5
+                                        ]
+                                    },
+                                    "output": "None"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "print",
+                        "docstring": "        {\n            \"description\": \"Formats the element set as a string, with elements displayed in rows of up to 10.\",\n            \"inputs\": [],\n            \"outputs\": {\n                \"type\": \"string\",\n                \"description\": \"Formatted string representation of the element set.\"\n            },\n            \"examples\": [\n                {\n                    \"input\": {},\n                    \"output\": \"*ELSET, ELSET=ExampleSet\n1,2,3,4,5\"\n                }\n            ]\n        }\n        ",
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "restart_index_element",
+                        "docstring": "{\n    \"description\": \"Adds a set of element IDs to the current set, effectively restarting their indices.\",\n    \"inputs\": [\n        {\n            \"name\": \"id_elements\",\n            \"type\": \"list or array of integers\",\n            \"description\": \"Additional element IDs to add to the current set.\"\n        }\n    ],\n    \"outputs\": {\n        \"type\": \"ElsetCard\",\n        \"description\": \"The updated ElsetCard instance.\"\n    },\n    \"examples\": [\n        {\n            \"input\": {\n                \"id_elements\": [10, 11]\n            },\n            \"output\": \"ElsetCard('ExampleSet', [11, 12, 13, 14, 15])\"\n        }\n    ]\n}",
+                        "module": "builtins",
+                        "parsed_metadata": {
+                            "description": "Adds a set of element IDs to the current set, effectively restarting their indices.",
+                            "inputs": [
+                                {
+                                    "name": "id_elements",
+                                    "type": "list or array of integers",
+                                    "description": "Additional element IDs to add to the current set."
+                                }
+                            ],
+                            "outputs": {
+                                "type": "ElsetCard",
+                                "description": "The updated ElsetCard instance."
+                            },
+                            "examples": [
+                                {
+                                    "input": {
+                                        "id_elements": [
+                                            10,
+                                            11
+                                        ]
+                                    },
+                                    "output": "ElsetCard('ExampleSet', [11, 12, 13, 14, 15])"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "select_faces",
+                        "docstring": "{\n    \"description\": \"Identifies and selects faces associated with the elements in the set, based on node connectivity.\",\n    \"inputs\": [\n        {\n            \"name\": \"all_elements\",\n            \"type\": \"pd.DataFrame\",\n            \"description\": \"DataFrame containing element connectivity information.\"\n        },\n        {\n            \"name\": \"nodes\",\n            \"type\": \"pd.DataFrame\",\n            \"description\": \"DataFrame containing node data, including their real indices.\"\n        }\n    ],\n    \"outputs\": {\n        \"type\": \"list\",\n        \"description\": \"A list of faces associated with the elements in the set.\"\n    },\n    \"examples\": [\n        {\n            \"input\": {\n                \"all_elements\": \"DataFrame with columns [0, 1, 2, 3]\",\n                \"nodes\": \"DataFrame with node information\"\n            },\n            \"output\": \"[[1, 2, 3], [3, 4, 5]]\"\n        }\n    ]\n}",
+                        "module": "builtins",
+                        "parsed_metadata": {
+                            "description": "Identifies and selects faces associated with the elements in the set, based on node connectivity.",
+                            "inputs": [
+                                {
+                                    "name": "all_elements",
+                                    "type": "pd.DataFrame",
+                                    "description": "DataFrame containing element connectivity information."
+                                },
+                                {
+                                    "name": "nodes",
+                                    "type": "pd.DataFrame",
+                                    "description": "DataFrame containing node data, including their real indices."
+                                }
+                            ],
+                            "outputs": {
+                                "type": "list",
+                                "description": "A list of faces associated with the elements in the set."
+                            },
+                            "examples": [
+                                {
+                                    "input": {
+                                        "all_elements": "DataFrame with columns [0, 1, 2, 3]",
+                                        "nodes": "DataFrame with node information"
+                                    },
+                                    "output": "[[1, 2, 3], [3, 4, 5]]"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "base_classes": [
+                    "Card"
+                ],
+                "inherited_methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__repr__",
+                        "docstring": "Return repr(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__str__",
+                        "docstring": "Return str(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    }
+                ],
+                "module": "djccx.inp.cards.ElsetCard"
+            },
+            "ElsetofElsetCard": {
+                "docstring": null,
+                "methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "module": "builtins"
+                    }
+                ],
+                "base_classes": [
+                    "Card"
+                ],
+                "inherited_methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__repr__",
+                        "docstring": "Return repr(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__str__",
+                        "docstring": "Return str(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    }
+                ],
+                "module": "djccx.inp.cards.ElsetCard"
+            }
+        },
+        "functions": [
+            {
+                "name": "read",
+                "docstring": "{\n    \"description\": \"This function processes a string to create an ElsetCard or ElsetofElsetCard object. The string is formatted, cleaned, and converted into an integer array or a list depending on the case.\",\n    \"inputs\": [\n        {\n            \"name\": \"content\",\n            \"type\": \"list of strings\",\n            \"description\": \"Content representing input data in comma-separated text format, possibly containing newline characters.\"\n        },\n        {\n            \"name\": \"name\",\n            \"type\": \"string\",\n            \"description\": \"Name of the card, which may include the prefix 'ELSET=' at the beginning.\"\n        }\n    ],\n    \"outputs\": {\n        \"type\": \"ElsetCard or ElsetofElsetCard\",\n        \"description\": \"Returns an ElsetCard object if the content can be converted into an integer array. Otherwise, returns an ElsetofElsetCard object.\"\n    },\n    \"examples\": [\n        {\n            \"input\": {\n                \"content\": [\"1, 2, 3,\", \"4, 5\"],\n                \"name\": \"ELSET=ExampleSet\"\n            },\n            \"output\": \"ElsetCard('ExampleSet', array([1, 2, 3, 4, 5], dtype=int))\"\n        },\n        {\n            \"input\": {\n                \"content\": [\"a, b,\", \"c,\"],\n                \"name\": \"ELSET=AnotherSet\"\n            },\n            \"output\": \"ElsetofElsetCard('AnotherSet', ['a', 'b', 'c'])\"\n        }\n    ]\n}",
+                "parsed_metadata": {
+                    "description": "This function processes a string to create an ElsetCard or ElsetofElsetCard object. The string is formatted, cleaned, and converted into an integer array or a list depending on the case.",
+                    "inputs": [
+                        {
+                            "name": "content",
+                            "type": "list of strings",
+                            "description": "Content representing input data in comma-separated text format, possibly containing newline characters."
+                        },
+                        {
+                            "name": "name",
+                            "type": "string",
+                            "description": "Name of the card, which may include the prefix 'ELSET=' at the beginning."
+                        }
+                    ],
+                    "outputs": {
+                        "type": "ElsetCard or ElsetofElsetCard",
+                        "description": "Returns an ElsetCard object if the content can be converted into an integer array. Otherwise, returns an ElsetofElsetCard object."
+                    },
+                    "examples": [
+                        {
+                            "input": {
+                                "content": [
+                                    "1, 2, 3,",
+                                    "4, 5"
+                                ],
+                                "name": "ELSET=ExampleSet"
+                            },
+                            "output": "ElsetCard('ExampleSet', array([1, 2, 3, 4, 5], dtype=int))"
+                        },
+                        {
+                            "input": {
+                                "content": [
+                                    "a, b,",
+                                    "c,"
+                                ],
+                                "name": "ELSET=AnotherSet"
+                            },
+                            "output": "ElsetofElsetCard('AnotherSet', ['a', 'b', 'c'])"
+                        }
+                    ]
+                },
+                "module": "djccx.inp.cards.ElsetCard"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.cards.ElsetCard"
+    },
+    "MaterialCard": {
+        "classes": {
+            "ElasticCard": {
+                "docstring": null,
+                "methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "module": "builtins"
+                    }
+                ],
+                "base_classes": [
+                    "Card"
+                ],
+                "inherited_methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__repr__",
+                        "docstring": "Return repr(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__str__",
+                        "docstring": "Return str(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    }
+                ],
+                "module": "djccx.inp.cards.MaterialCard"
+            },
+            "DensityCard": {
+                "docstring": null,
+                "methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "module": "builtins"
+                    }
+                ],
+                "base_classes": [
+                    "Card"
+                ],
+                "inherited_methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__repr__",
+                        "docstring": "Return repr(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__str__",
+                        "docstring": "Return str(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    }
+                ],
+                "module": "djccx.inp.cards.MaterialCard"
+            },
+            "MaterialCard": {
+                "docstring": null,
+                "methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "module": "builtins"
+                    }
+                ],
+                "base_classes": [
+                    "Card"
+                ],
+                "inherited_methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__repr__",
+                        "docstring": "Return repr(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__str__",
+                        "docstring": "Return str(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    }
+                ],
+                "module": "djccx.inp.cards.MaterialCard"
+            }
+        },
+        "functions": [
+            {
+                "name": "read",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.cards.MaterialCard"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.cards.MaterialCard"
+    },
+    "TieCard": {
+        "classes": {
+            "TieCard": {
+                "docstring": null,
+                "methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "restart_index_element",
+                        "docstring": null,
+                        "module": "builtins"
+                    }
+                ],
+                "base_classes": [
+                    "Card"
+                ],
+                "inherited_methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__repr__",
+                        "docstring": "Return repr(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__str__",
+                        "docstring": "Return str(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    }
+                ],
+                "module": "djccx.inp.cards.TieCard"
+            }
+        },
+        "functions": [
+            {
+                "name": "read",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.cards.TieCard"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.cards.TieCard"
+    },
+    "NsetCard": {
+        "classes": {
+            "NsetCard": {
+                "docstring": null,
+                "methods": [
+                    {
+                        "name": "GetNodes",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "__init__",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "radius",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "restart_index_nodes",
+                        "docstring": null,
+                        "module": "builtins"
+                    }
+                ],
+                "base_classes": [
+                    "Card"
+                ],
+                "inherited_methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__repr__",
+                        "docstring": "Return repr(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__str__",
+                        "docstring": "Return str(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    }
+                ],
+                "module": "djccx.inp.cards.NsetCard"
+            },
+            "NsetCardofNset": {
+                "docstring": null,
+                "methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "module": "builtins"
+                    }
+                ],
+                "base_classes": [
+                    "Card"
+                ],
+                "inherited_methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__repr__",
+                        "docstring": "Return repr(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__str__",
+                        "docstring": "Return str(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    }
+                ],
+                "module": "djccx.inp.cards.NsetCard"
+            }
+        },
+        "functions": [
+            {
+                "name": "read",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.cards.NsetCard"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.cards.NsetCard"
+    },
+    "ElementCard": {
+        "classes": {
+            "ElementCard": {
+                "docstring": null,
+                "methods": [
+                    {
+                        "name": "GetDiameter",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "GetMassCenter",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "GetNodes",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "GetSTD",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "GetUniqueNodes",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "GetUniqueNodesTetra",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "SetNodes",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "__init__",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "merge",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "plot",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "plot3D",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "restart_index_element",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "restart_index_nodes",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "select_faces",
+                        "docstring": null,
+                        "module": "builtins"
+                    }
+                ],
+                "base_classes": [
+                    "Card"
+                ],
+                "inherited_methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__repr__",
+                        "docstring": "Return repr(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__str__",
+                        "docstring": "Return str(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    }
+                ],
+                "module": "djccx.inp.cards.ElementCard"
+            }
+        },
+        "functions": [],
+        "docstring": "",
+        "file_path": "djccx.inp.cards.ElementCard"
+    },
+    "Card": {
+        "classes": {
+            "Card": {
+                "docstring": null,
+                "methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "__repr__",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "__str__",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "module": "builtins"
+                    }
+                ],
+                "base_classes": [
+                    "object"
+                ],
+                "inherited_methods": [],
+                "module": "djccx.inp.cards.Card"
+            }
+        },
+        "functions": [],
+        "docstring": "",
+        "file_path": "djccx.inp.cards.Card"
+    },
+    "SurfaceInteractionCard": {
+        "classes": {
+            "SurfaceInteractionCard": {
+                "docstring": null,
+                "methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "module": "builtins"
+                    }
+                ],
+                "base_classes": [
+                    "Card"
+                ],
+                "inherited_methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__repr__",
+                        "docstring": "Return repr(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__str__",
+                        "docstring": "Return str(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    }
+                ],
+                "module": "djccx.inp.cards.SurfaceInteractionCard"
+            }
+        },
+        "functions": [
+            {
+                "name": "read",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.cards.SurfaceInteractionCard"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.cards.SurfaceInteractionCard"
+    },
+    "ContactCard": {
+        "classes": {
+            "ContactCard": {
+                "docstring": null,
+                "methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "module": "builtins"
+                    }
+                ],
+                "base_classes": [
+                    "Card"
+                ],
+                "inherited_methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__repr__",
+                        "docstring": "Return repr(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__str__",
+                        "docstring": "Return str(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    }
+                ],
+                "module": "djccx.inp.cards.ContactCard"
+            }
+        },
+        "functions": [
+            {
+                "name": "read",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.cards.ContactCard"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.cards.ContactCard"
+    },
+    "EquationCard": {
+        "classes": {
+            "EquationCard": {
+                "docstring": null,
+                "methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print_linear_interpolation",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print_mean",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print_point",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print_set_center_mass",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print_zmirror",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print_zmirror_point",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "restart_index_nodes",
+                        "docstring": null,
+                        "module": "builtins"
+                    }
+                ],
+                "base_classes": [
+                    "Card"
+                ],
+                "inherited_methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__repr__",
+                        "docstring": "Return repr(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__str__",
+                        "docstring": "Return str(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    }
+                ],
+                "module": "djccx.inp.cards.EquationCard"
+            }
+        },
+        "functions": [],
+        "docstring": "",
+        "file_path": "djccx.inp.cards.EquationCard"
+    },
+    "SurfaceCard": {
+        "classes": {
+            "SurfaceCard": {
+                "docstring": null,
+                "methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "select_faces",
+                        "docstring": "Inputs:\n-------\n* inp_obj: object of class Inp\n* surf: object of class Surface\n* elem: object of class Element\n* nodes: object of dataframe nid,x,y,z",
+                        "module": "builtins"
+                    }
+                ],
+                "base_classes": [
+                    "Card"
+                ],
+                "inherited_methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__repr__",
+                        "docstring": "Return repr(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__str__",
+                        "docstring": "Return str(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    }
+                ],
+                "module": "djccx.inp.cards.SurfaceCard"
+            },
+            "SurfaceNodeCard": {
+                "docstring": null,
+                "methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "restart_index_element",
+                        "docstring": null,
+                        "module": "builtins"
+                    }
+                ],
+                "base_classes": [
+                    "Card"
+                ],
+                "inherited_methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__repr__",
+                        "docstring": "Return repr(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__str__",
+                        "docstring": "Return str(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    }
+                ],
+                "module": "djccx.inp.cards.SurfaceCard"
+            }
+        },
+        "functions": [
+            {
+                "name": "read",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.cards.SurfaceCard"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.cards.SurfaceCard"
+    },
+    "SolidSectionCard": {
+        "classes": {
+            "SolidSectionCard": {
+                "docstring": null,
+                "methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "module": "builtins"
+                    }
+                ],
+                "base_classes": [
+                    "Card"
+                ],
+                "inherited_methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__repr__",
+                        "docstring": "Return repr(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__str__",
+                        "docstring": "Return str(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    }
+                ],
+                "module": "djccx.inp.cards.SolidSectionCard"
+            }
+        },
+        "functions": [
+            {
+                "name": "read",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.cards.SolidSectionCard"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.cards.SolidSectionCard"
+    },
+    "TransformCard": {
+        "classes": {
+            "TransformCard": {
+                "docstring": null,
+                "methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "module": "builtins"
+                    }
+                ],
+                "base_classes": [
+                    "Card"
+                ],
+                "inherited_methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__repr__",
+                        "docstring": "Return repr(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__str__",
+                        "docstring": "Return str(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    }
+                ],
+                "module": "djccx.inp.cards.TransformCard"
+            }
+        },
+        "functions": [
+            {
+                "name": "read",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.cards.TransformCard"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.cards.TransformCard"
+    },
+    "Boundary": {
+        "classes": {
+            "BoundaryCard": {
+                "docstring": null,
+                "methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "__repr__",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "__str__",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "module": "builtins"
+                    }
+                ],
+                "base_classes": [
+                    "Card"
+                ],
+                "inherited_methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__repr__",
+                        "docstring": "Return repr(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__str__",
+                        "docstring": "Return str(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    }
+                ],
+                "module": "djccx.inp.cards.Step.Boundary"
+            },
+            "BoundaryOpNewCard": {
+                "docstring": null,
+                "methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "module": "builtins"
+                    }
+                ],
+                "base_classes": [
+                    "Card"
+                ],
+                "inherited_methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__repr__",
+                        "docstring": "Return repr(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__str__",
+                        "docstring": "Return str(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    }
+                ],
+                "module": "djccx.inp.cards.Step.Boundary"
+            }
+        },
+        "functions": [
+            {
+                "name": "read",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.cards.Step.Boundary"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.cards.Step.Boundary"
+    },
+    "DloadCard": {
+        "classes": {
+            "DloadCard": {
+                "docstring": null,
+                "methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "module": "builtins"
+                    }
+                ],
+                "base_classes": [
+                    "Card"
+                ],
+                "inherited_methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__repr__",
+                        "docstring": "Return repr(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__str__",
+                        "docstring": "Return str(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    }
+                ],
+                "module": "djccx.inp.cards.Step.DloadCard"
+            }
+        },
+        "functions": [
+            {
+                "name": "read",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.cards.Step.DloadCard"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.cards.Step.DloadCard"
+    },
+    "StepCard": {
+        "classes": {
+            "StepCard": {
+                "docstring": null,
+                "methods": [
+                    {
+                        "name": "CreateBoundary",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "CreateCload",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "CreateDload",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "CreateDloadSurface",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "__init__",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "module": "builtins"
+                    }
+                ],
+                "base_classes": [
+                    "Card"
+                ],
+                "inherited_methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__repr__",
+                        "docstring": "Return repr(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__str__",
+                        "docstring": "Return str(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    }
+                ],
+                "module": "djccx.inp.cards.Step.StepCard"
+            }
+        },
+        "functions": [
+            {
+                "name": "read",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.cards.Step.StepCard"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.cards.Step.StepCard"
+    },
+    "CloadCard": {
+        "classes": {
+            "CloadCard": {
+                "docstring": null,
+                "methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "module": "builtins"
+                    }
+                ],
+                "base_classes": [
+                    "Card"
+                ],
+                "inherited_methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__repr__",
+                        "docstring": "Return repr(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__str__",
+                        "docstring": "Return str(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    }
+                ],
+                "module": "djccx.inp.cards.Step.CloadCard"
+            },
+            "CloadOpNewCard": {
+                "docstring": null,
+                "methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": null,
+                        "module": "builtins"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "module": "builtins"
+                    }
+                ],
+                "base_classes": [
+                    "Card"
+                ],
+                "inherited_methods": [
+                    {
+                        "name": "__init__",
+                        "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__repr__",
+                        "docstring": "Return repr(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "__str__",
+                        "docstring": "Return str(self).",
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    },
+                    {
+                        "name": "print",
+                        "docstring": null,
+                        "from_class": "Card",
+                        "module": "djccx.inp.cards.Card"
+                    }
+                ],
+                "module": "djccx.inp.cards.Step.CloadCard"
+            }
+        },
+        "functions": [
+            {
+                "name": "read",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.cards.Step.CloadCard"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.cards.Step.CloadCard"
+    },
+    "reset_index": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "reset_index",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.basic.reset_index"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.basic.reset_index"
+    },
+    "merge": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "merge",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.basic.merge"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.basic.merge"
+    },
+    "SetPrefix": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "SetPrefix",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.basic.SetPrefix"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.basic.SetPrefix"
+    },
+    "setResultsSteps": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "setResultsSteps",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.basic.setResultsSteps"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.basic.setResultsSteps"
+    },
+    "remove_by_type": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "remove_by_type",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.basic.remove_by_type"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.basic.remove_by_type"
+    },
+    "plots": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "plot",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.basic.plots"
+            },
+            {
+                "name": "plot3D",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.basic.plots"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.basic.plots"
+    },
+    "print": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "print",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.basic.print"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.basic.print"
+    },
+    "remove_lib": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "remove_nset",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.basic.remove_lib"
+            },
+            {
+                "name": "remove_surface",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.basic.remove_lib"
+            },
+            {
+                "name": "remove_surface_regex",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.basic.remove_lib"
+            },
+            {
+                "name": "remove_nset_regex",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.basic.remove_lib"
+            },
+            {
+                "name": "remove_tie",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.basic.remove_lib"
+            },
+            {
+                "name": "remove_tie_regex",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.basic.remove_lib"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.basic.remove_lib"
+    },
+    "select": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "select",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.basic.select"
+            },
+            {
+                "name": "select_regex",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.basic.select"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.basic.select"
+    },
+    "filter_by_type": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "filter_by_type",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.basic.filter_by_type"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.basic.filter_by_type"
+    },
+    "setResults": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "setResults",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.basic.setResults"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.basic.setResults"
+    },
+    "GetNodesElement": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "GetNodesElement",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.inp.basic.GetNodesElement"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.inp.basic.GetNodesElement"
+    },
+    "SendToCluster": {
+        "classes": {},
+        "functions": [],
+        "docstring": "",
+        "file_path": "djccx.feacluster.SendToCluster",
+        "error": "No module named 'requests'"
+    },
+    "el2face": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "el2face",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.tools.el2face"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.tools.el2face"
+    },
+    "plotlyinpdata": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "plotlyinpdata",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.plot.plotlyinpdata"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.plot.plotlyinpdata"
+    },
+    "select_faces": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "select_faces",
+                "docstring": "Inputs:\n-------\n* inp_obj: object of class Inp\n* surf: object of class Surface\n* elem: object of class Element\n* nodes: object of dataframe nid,x,y,z",
+                "parsed_metadata": null,
+                "module": "djccx.plot.select_faces"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.plot.select_faces"
+    },
+    "plotly": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "plotly",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.plot.plotly"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.plot.plotly"
+    },
+    "plotfrd": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "plotfrd",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.frd.plotfrd"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.frd.plotfrd"
+    },
+    "readfrd": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "parseblock",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.frd.readfrd"
+            },
+            {
+                "name": "parsenodes",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.frd.readfrd"
+            },
+            {
+                "name": "readfrd",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.frd.readfrd"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.frd.readfrd"
+    },
+    "measurements": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "compute_von_misses",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.frd.measurements"
+            },
+            {
+                "name": "von_misses",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.frd.measurements"
+            },
+            {
+                "name": "principal_stress",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.frd.measurements"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.frd.measurements"
+    },
+    "viewer": {
+        "classes": {},
+        "functions": [
+            {
+                "name": "parametrized",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.viewer.viewer"
+            },
+            {
+                "name": "layer",
+                "docstring": null,
+                "parsed_metadata": null,
+                "module": "djccx.viewer.viewer"
+            }
+        ],
+        "docstring": "",
+        "file_path": "djccx.viewer.viewer"
+    }
+}
